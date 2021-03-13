@@ -6,17 +6,26 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <>
+            <div>
+              <input name="token" type="hidden" value="gAT7X7sP34niWmUPsE7eL3GNUyfEpONEdZLM" />
+              <input name="cmd" type="hidden" value="chat" />
+              <input name="id" type="hidden" value="B13Q796MGP" />
+            </div>
+            <div>
+              <label htmlFor="to">Para:</label>
+            </div>
+            <div>
+              <input id="to" name="to" type="text" />
+            </div>
+            <div>
+              <label htmlFor="msg">Mensagem:</label>
+            </div>
+            <div>
+              <textarea id="msg" name="msg"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+          </>
       </header>
     </div>
   );
