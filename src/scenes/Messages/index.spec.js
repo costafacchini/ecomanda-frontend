@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { Route, MemoryRouter } from 'react-router-dom'
 import { act } from 'react-dom/test-utils'
 import fetchMock from 'fetch-mock'
-import Messages from '../index'
+import Messages from './index'
 
 describe('<Messages />', () => {
   function mount() {
