@@ -18,7 +18,7 @@ export default function Messages() {
     const response = await sendMessage(token, number, message)
     setNumber('')
     setMessage('')
-    setResponse(response)
+    setResponse(response.message)
   }
 
   return (
