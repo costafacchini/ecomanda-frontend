@@ -35,6 +35,23 @@ describe('transformData', () => {
     })
   })
 
+  test('responds with winzap object data if provider is "utalk"', () => {
+    const data = {
+      provider: 'utalk',
+      token: 'token-utalk'
+    }
+
+    expect(transformData(data, '5548902148723', 'send message from utalk')).toEqual({
+      url: 'https://v1.utalk.chat/send/token-utalk/',
+      body: {
+        cmd: 'chat',
+        id: 'B13Q796MGP',
+        to: '5548902148723@c.us',
+        msg: 'send message from utalk'
+      }
+    })
+  })
+
   test('logs error if provider is unknown', () => {
     const consoleSpy = jest.spyOn(global.console, 'error').mockImplementation()
 
