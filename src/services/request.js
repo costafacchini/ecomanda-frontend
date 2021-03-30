@@ -4,7 +4,8 @@ export default async function request(url, body) {
     mode: 'cors',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify(body)
   }
