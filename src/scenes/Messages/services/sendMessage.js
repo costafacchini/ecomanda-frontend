@@ -1,6 +1,5 @@
-import decrypt from '../../../services/decrypt'
 import request from '../../../services/request'
-import transformData from './transformData'
+const SEND_MESSAGE_URL = process.env.SEND_MESSAGE_URL
 
 function notOffline(response) {
   return !JSON.stringify(response.data).includes('offline')
@@ -11,12 +10,9 @@ function notAutenticated(response) {
 }
 
 export default async function sendMessage(token, to, msg) {
-  const dataDectipted = decrypt(token)
-  const dataTransformed = transformData(dataDectipted, to, msg)
-
   const objResponse = { success: false, message: '' }
 
-  const response = await request(dataTransformed.url, dataTransformed.body)
+  const response = await request(SEND_MESSAGE_URL, { token, to, msg })
 
   if ((response.status === 200 || response.status === 201) && notOffline(response) && notAutenticated(response)) {
     objResponse.success = true
