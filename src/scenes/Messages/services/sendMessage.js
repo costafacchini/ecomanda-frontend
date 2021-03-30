@@ -1,5 +1,5 @@
 import request from '../../../services/request'
-const SEND_MESSAGE_URL = process.env.SEND_MESSAGE_URL
+const { REACT_APP_SEND_MESSAGE_URL } = process.env
 
 function notOffline(response) {
   return !JSON.stringify(response.data).includes('offline')
@@ -12,7 +12,7 @@ function notAutenticated(response) {
 export default async function sendMessage(token, to, msg) {
   const objResponse = { success: false, message: '' }
 
-  const response = await request(SEND_MESSAGE_URL, { token, to, msg })
+  const response = await request(REACT_APP_SEND_MESSAGE_URL, { token, to, msg })
 
   if ((response.status === 200 || response.status === 201) && notOffline(response) && notAutenticated(response)) {
     objResponse.success = true
