@@ -3,9 +3,7 @@ export default async function request(url, body) {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
   }
