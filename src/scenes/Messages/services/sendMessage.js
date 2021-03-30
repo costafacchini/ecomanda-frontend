@@ -12,7 +12,13 @@ function notAutenticated(response) {
 export default async function sendMessage(token, to, msg) {
   const objResponse = { success: false, message: '' }
 
-  const response = await request(REACT_APP_SEND_MESSAGE_URL, { token, to, msg })
+  const body = {
+    token: token,
+    to: to,
+    msg: msg
+  }
+
+  const response = await request(REACT_APP_SEND_MESSAGE_URL, body)
 
   if ((response.status === 200 || response.status === 201) && notOffline(response) && notAutenticated(response)) {
     objResponse.success = true
