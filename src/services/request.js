@@ -1,9 +1,9 @@
 export default async function request(url, body) {
   const requestOptions = {
     method: 'POST',
+    mode: 'no-cors',
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
   }
